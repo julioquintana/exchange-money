@@ -2,6 +2,7 @@ package cl.exchangemoney.pruebatest.controller;
 
 import cl.exchangemoney.pruebatest.dto.CurrencyEquivalenceRequestDto;
 import cl.exchangemoney.pruebatest.dto.CurrencyEquivalenceResponseDto;
+import cl.exchangemoney.pruebatest.exceptions.ExchangeMoneyException;
 import cl.exchangemoney.pruebatest.service.ICurrencyEquivalenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -38,9 +39,8 @@ public class CurrencyEquivalenceController {
   @GetMapping(path = "/")
   public ResponseEntity<Page<CurrencyEquivalenceResponseDto>> getByParameters(
       @RequestParam(value = "key", required = false) String key,
-      @SortDefault.SortDefaults({
-          @SortDefault(sort = "currency_name", direction = Sort.Direction.ASC)})
-          Pageable pageable) {
+      @SortDefault.SortDefaults({@SortDefault(sort = "currencyName", direction = Sort.Direction.ASC)})
+          Pageable pageable) throws ExchangeMoneyException {
     return new ResponseEntity<>(
         service.getAll(key, pageable), HttpStatus.OK);
   }

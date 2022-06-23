@@ -35,7 +35,7 @@ public class CurrencyEquivalence implements Serializable {
   @Column(name = "currency_pivot_key", nullable = false)
   private String currencyPivotKey;
   @Column(name = "currency_pivot_equivalence", nullable = false)
-  private double currencyPivotEquivalence;
+  private Double currencyPivotEquivalence;
   private Boolean active;
   @UpdateTimestamp
   private java.sql.Timestamp updatedAt;

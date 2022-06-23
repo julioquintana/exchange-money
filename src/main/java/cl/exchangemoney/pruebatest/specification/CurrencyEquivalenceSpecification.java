@@ -8,10 +8,10 @@ import org.springframework.util.StringUtils;
 
 public class CurrencyEquivalenceSpecification {
 
-  public static Specification<CurrencyEquivalence> currencyEquivalenceEquals(final String key) {
+  public static Specification<CurrencyEquivalence> keyEquals(final String key) {
     return (root, query, criteriaBuilder) -> {
       if (StringUtils.hasText(key)) {
-        return criteriaBuilder.equal(root.get(CurrencyEquivalence_.currencyKey), key);
+        return criteriaBuilder.equal(root.get(CurrencyEquivalence_.CURRENCY_KEY), key);
       }
       return criteriaBuilder.conjunction();
     };

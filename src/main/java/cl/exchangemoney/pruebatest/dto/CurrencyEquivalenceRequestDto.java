@@ -1,6 +1,5 @@
 package cl.exchangemoney.pruebatest.dto;
 
-import javax.persistence.Column;
 import lombok.Getter;
 import lombok.Setter;
 

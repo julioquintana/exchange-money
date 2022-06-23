@@ -38,13 +38,9 @@ public class CurrencyEquivalenceServiceImpl implements ICurrencyEquivalenceServi
   public Page<CurrencyEquivalenceResponseDto> getAll(String key, Pageable pageable)
       throws ExchangeMoneyException {
     var response =
-        repository.findAll(where(CurrencyEquivalenceSpecification.currencyEquivalenceEquals(key)),
+        repository.findAll(where(CurrencyEquivalenceSpecification.keyEquals(key)),
             pageable);
 
-    if (response.isEmpty()) {
-      throw new ExchangeMoneyException(
-          Constant.ERROR, Constant.EMPTY_LIST, Constant.GENERIC_ERROR, HttpStatus.NOT_FOUND);
-    }
     return CurrencyEquivalenceMapper.build(response);
   }
 }

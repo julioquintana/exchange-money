@@ -9,5 +9,4 @@ import org.springframework.stereotype.Repository;
 public interface CurrencyEquivalenceRepository
     extends JpaRepository<CurrencyEquivalence, String>,
     JpaSpecificationExecutor<CurrencyEquivalence> {
-
 }
